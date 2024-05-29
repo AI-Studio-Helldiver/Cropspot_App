@@ -8,12 +8,17 @@
 </head>
 <body>
     <h1>CropSpot</h1>
-    <img id="videoFeed" src="/video_feed">
+    <img id="videoFeed" src="/video_feed" alt="">
     <button id="takePicture">Take Picture</button>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <div id="explanation">
         <p>Use the camera to take a picture of a crop. Our program will analyze it to find any potential diseases.</p>
     </div>
+    <h2>Upload</h2>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept=".jpg,.jpeg,.png">
+    <input type="submit" value="Upload Image">
+</form>
 </body>
 </html>

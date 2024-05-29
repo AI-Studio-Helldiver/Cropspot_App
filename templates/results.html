@@ -15,10 +15,8 @@
             <div class="predictions">
                 {% for item in prediction %}
                     <div class="prediction-item">
-                        <p>Tomato plant found</p>
                         <p id="detected">Disease detected in plant</p>
                         <span class="label">Disease name:</span> {{ item.Class }} <br>
-                        <span class="label">Probability:</span> {{ item.Probability }}
                     </div>
                 {% endfor %}
             </div>

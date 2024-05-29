@@ -5,18 +5,11 @@
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
-from tensorflow.keras.optimizers import Adam
 
 
 class Processor:
     def __init__(self, model_path):
         self.model = load_model(model_path)
-        self.model.compile(
-            loss="categorical_crossentropy",
-            optimizer=Adam(learning_rate=0.00033612834408703365),
-            metrics=['accuracy']
-        )
-        self.model.trainable = False  # Set the model to inference mode
 
     def process_image(self, image):
         try:
@@ -25,7 +18,6 @@ class Processor:
 
             # Perform inference
             predictions = self.model.predict(prepared_image)
-
             class_labels = {0: 'healthy', 1: 'leaf blight', 2: 'leaf curl', 3: 'septoria leaf spot', 4: 'verticulium wilt'}
 
             # Decode the predictions manually for your custom model
